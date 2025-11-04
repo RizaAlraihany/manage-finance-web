@@ -1,5 +1,12 @@
 # ✨ Manage Finance Web Project ✨
 
+![GitHub last commit](https://img.shields.io/github/last-commit/RizaAlraihany/manage-finance-web?color=blue)
+![GitHub repo size](https://img.shields.io/github/repo-size/RizaAlraihany/manage-finance-web)
+![GitHub License](https://img.shields.io/github/license/RizaAlraihany/manage-finance-web)
+![GitHub stars](https://img.shields.io/github/stars/RizaAlraihany/manage-finance-web?style=social)
+
+---
+
 Aplikasi web sederhana untuk **mengelola keuangan pribadi**, meliputi pemasukan, pengeluaran, dan saldo akhir.
 Didesain dengan tampilan modern menggunakan **Tailwind CSS** dan gaya _glassmorphism_.
 
@@ -93,6 +100,7 @@ Berikut tampilan antarmuka dari aplikasi **Manage Finance Web**:
 
 ![Dashboard Manage Finance - Tampilan 1](./preview/dashboard-1.png)
 ![Dashboard Manage Finance - Tampilan 2](./preview/dashboard-2.png)
+
 ---
 
 ## 👨‍💻 Developer
@@ -110,8 +118,10 @@ Proyek ini dilisensikan di bawah lisensi **MIT License** — bebas digunakan dan
 
 ---
 
-> “Kelola keuangan dengan cerdas, mulai dari hal kecil.” 💰
-=======
+> # “Kelola keuangan dengan cerdas, mulai dari hal kecil.” 💰
+
 # manage-finance-web
+
 A simple personal finance management web app built with HTML, CSS, and JavaScript.
->>>>>>> 598a8d066f417747e9f14f126e27b6739940d467
+
+> > > > > > > 598a8d066f417747e9f14f126e27b6739940d467
