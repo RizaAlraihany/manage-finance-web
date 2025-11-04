@@ -12,6 +12,12 @@ Didesain dengan tampilan modern menggunakan **Tailwind CSS** dan gaya _glassmorp
 
 ---
 
+## 🌐 Live Demo
+
+🔗 [Klik di sini untuk mencoba aplikasi](https://RizaAlraihany.github.io/manage-finance-web)
+
+---
+
 ## 🚀 Fitur Utama
 
 ✅ **Dashboard Ringkas**
@@ -107,6 +113,7 @@ Berikut tampilan antarmuka dari aplikasi **Manage Finance Web**:
 
 **Dibuat oleh:**
 💙 [Riza Alraihany](https://github.com/RizaAlraihany)
+💙 [Riza Alraihany](https://www.linkedin.com/in/riza-alraihany)
 
 📧 _Untuk kolaborasi atau pengembangan lanjutan, silakan hubungi saya!_
 
