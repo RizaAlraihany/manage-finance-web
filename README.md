@@ -111,3 +111,7 @@ Proyek ini dilisensikan di bawah lisensi **MIT License** — bebas digunakan dan
 ---
 
 > “Kelola keuangan dengan cerdas, mulai dari hal kecil.” 💰
+=======
+# manage-finance-web
+A simple personal finance management web app built with HTML, CSS, and JavaScript.
+>>>>>>> 598a8d066f417747e9f14f126e27b6739940d467
