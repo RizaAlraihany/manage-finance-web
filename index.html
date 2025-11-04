@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <!-- css tailwind -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
+    <title>✨ Manage Finance Web Project ✨</title>
+    <!-- 👇 css code file 👇 -->
+    <link rel="stylesheet" href="./src/style/global.css" />
+  </head>
+  <body class="bg-base dark:bg-dark transition-colors duration-500 ease-soft">
+    <div class="min-h-full p-4">
+      <div class="max-w-4xl mx-auto">
+        <!-- Header -->
+        <div class="text-center mb-12">
+          <div
+            class="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-blue-500 to-purple-600 rounded-2xl mb-4 professional-shadow"
+          >
+            <img src="src/assets/images/cash-flow.svg" alt="Cash Flow Icon" />
+          </div>
+          <h1 id="app-title" class="text-5xl font-bold gradient-text mb-3">
+            Pengelola Keuangan
+          </h1>
+          <p class="text-slate-600 text-lg font-medium">
+            Kelola pemasukan dan pengeluaran Anda dengan mudah
+          </p>
+          <div
+            class="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mt-4 rounded-full"
+          ></div>
+        </div>
+
+        <!-- Summary Cards -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div
+            class="glass-effect rounded-2xl professional-shadow p-8 card-hover relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 w-32 h-32 income-gradient rounded-full -mr-16 -mt-16 opacity-10"
+            ></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-4">
+                <div class="p-3 income-gradient rounded-xl">
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewbox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <p
+                id="income-label"
+                class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2"
+              >
+                Pemasukan
+              </p>
+              <p id="total-income" class="text-3xl font-bold text-slate-800">
+                Rp 0
+              </p>
+              <div class="mt-4 flex items-center text-green-600">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                  ></path>
+                </svg>
+                <span class="text-sm font-medium">Total Pemasukan</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="glass-effect rounded-2xl professional-shadow p-8 card-hover relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 w-32 h-32 expense-gradient rounded-full -mr-16 -mt-16 opacity-10"
+            ></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-4">
+                <div class="p-3 expense-gradient rounded-xl">
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewbox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M20 12H4"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <p
+                id="expense-label"
+                class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2"
+              >
+                Pengeluaran
+              </p>
+              <p id="total-expense" class="text-3xl font-bold text-slate-800">
+                Rp 0
+              </p>
+              <div class="mt-4 flex items-center text-red-600">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M13 17h8m0 0V9m0 8l-8-8-4 4-6-6"
+                  ></path>
+                </svg>
+                <span class="text-sm font-medium">Total Pengeluaran</span>
+              </div>
+            </div>
+          </div>
+
+          <div
+            class="glass-effect rounded-2xl professional-shadow p-8 card-hover relative overflow-hidden"
+          >
+            <div
+              class="absolute top-0 right-0 w-32 h-32 balance-gradient rounded-full -mr-16 -mt-16 opacity-10"
+            ></div>
+            <div class="relative">
+              <div class="flex items-center justify-between mb-4">
+                <div class="p-3 balance-gradient rounded-xl">
+                  <svg
+                    class="w-6 h-6 text-white"
+                    fill="none"
+                    stroke="currentColor"
+                    viewbox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"
+                    ></path>
+                  </svg>
+                </div>
+              </div>
+              <p
+                class="text-sm font-semibold text-slate-500 uppercase tracking-wider mb-2"
+              >
+                Saldo
+              </p>
+              <p id="balance" class="text-3xl font-bold text-slate-800">Rp 0</p>
+              <div class="mt-4 flex items-center text-blue-600">
+                <svg
+                  class="w-4 h-4 mr-1"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
+                  ></path>
+                </svg>
+                <span class="text-sm font-medium">Saldo Saat Ini</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Transactions panel -->
+        <div class="glass-effect rounded-2xl professional-shadow p-8">
+          <div class="flex justify-between items-center mb-8">
+            <div>
+              <h2 class="text-2xl font-bold text-slate-800 mb-1">
+                Riwayat Transaksi
+              </h2>
+              <p class="text-slate-600">
+                Kelola dan pantau semua aktivitas keuangan Anda
+              </p>
+            </div>
+            <div
+              class="bg-gradient-to-r from-blue-50 to-purple-50 px-4 py-2 rounded-xl border border-blue-200"
+            >
+              <span class="text-sm font-semibold text-slate-600">Total: </span>
+              <span
+                id="transaction-count"
+                class="text-lg font-bold text-slate-800"
+                >0</span
+              >
+              <span class="text-sm text-slate-600"> transaksi</span>
+            </div>
+          </div>
+
+          <!-- Menu Navigation -->
+          <div
+            class="flex space-x-2 mb-8 bg-gradient-to-r from-slate-50 to-slate-100 p-2 rounded-xl border border-slate-200"
+          >
+            <button
+              id="menu-history"
+              class="menu-button flex-1 py-3 px-6 text-sm font-semibold rounded-lg transition-all duration-300 balance-gradient text-white shadow-md hover:brightness-110 hover:scale-105 hover:shadow-lg"
+            >
+              📊 Riwayat Transaksi
+            </button>
+            <button
+              id="menu-income"
+              class="menu-button flex-1 py-3 px-6 text-sm font-semibold rounded-lg transition-all duration-300 text-slate-600 hover:text-slate-800 hover:bg-white hover:shadow-sm"
+            >
+              💰 Pemasukan
+            </button>
+            <button
+              id="menu-expense"
+              class="menu-button flex-1 py-3 px-6 text-sm font-semibold rounded-lg transition-all duration-300 text-slate-600 hover:text-slate-800 hover:bg-white hover:shadow-sm"
+            >
+              💸 Pengeluaran
+            </button>
+          </div>
+
+          <!-- Menu Content -->
+          <div id="menu-content-history" class="menu-content">
+            <div id="transactions-list-all" class="space-y-3">
+              <div class="text-center py-8 text-gray-500">
+              <img src="src/assets/images/add.svg" alt="add.svg">
+                <p>
+                  Belum ada transaksi. Mulai dengan menambah transaksi pertama
+                  Anda!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div id="menu-content-income" class="menu-content hidden">
+            <div class="flex justify-between items-center mb-6">
+              <div>
+                <h3 class="text-lg font-semibold text-slate-800">
+                  Data Pemasukan
+                </h3>
+                <p class="text-sm text-slate-600">
+                  Kelola semua pemasukan Anda
+                </p>
+              </div>
+              <button
+                id="btn-show-income-form"
+                class="income-gradient text-white font-semibold py-2 px-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-green-200"
+              >
+                + Tambah Pemasukan
+              </button>
+            </div>
+            <!-- Income Form Card -->
+            <div
+              id="income-form-card"
+              class="glass-effect rounded-xl professional-shadow p-6 mb-8"
+              style="display: none"
+            >
+              <div class="flex items-center gap-3 mb-6">
+                <div
+                  class="w-10 h-10 rounded-lg bg-green-500 flex items-center justify-center text-white text-2xl"
+                >
+                  +
+                </div>
+                <h2 class="text-xl font-semibold">Tambah Pemasukan</h2>
+              </div>
+              <form id="income-add-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      for="inc-tanggal"
+                      class="block text-sm font-medium text-slate-600 mb-1"
+                      >Tanggal</label
+                    >
+                    <input
+                      type="date"
+                      id="inc-tanggal"
+                      required
+                      placeholder="mm/dd/yyyy"
+                      class="w-full rounded-lg border border-gray-200 focus:border-green-500 focus:ring focus:ring-green-200 transition-shadow text-slate-800 px-4 py-2.5"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="inc-jumlah"
+                      class="block text-sm font-medium text-slate-600 mb-1"
+                      >Jumlah Pemasukan (Rp)</label
+                    >
+                    <input
+                      type="number"
+                      id="inc-jumlah"
+                      required
+                      min="0"
+                      placeholder="0"
+                      class="w-full rounded-lg border border-gray-200 focus:border-green-500 focus:ring focus:ring-green-200 transition-shadow text-slate-800 px-4 py-2.5"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      for="inc-sumber"
+                      class="block text-sm font-medium text-slate-600 mb-1"
+                      >Sumber Pemasukan</label
+                    >
+                    <select
+                      id="inc-sumber"
+                      required
+                      class="w-full rounded-lg border border-gray-200 focus:border-green-500 focus:ring focus:ring-green-200 transition-shadow text-slate-800 px-4 py-2.5"
+                    >
+                      <option value="">Pilih Sumber Pemasukan</option>
+                      <option value="Gaji">Gaji</option>
+                      <option value="Bonus">Bonus</option>
+                      <option value="Investasi">Investasi</option>
+                      <option value="Usaha Pribadi">Usaha Pribadi</option>
+                      <option value="Freelance / Proyek">
+                        Freelance / Proyek
+                      </option>
+                      <option value="Lainnya">Lainnya</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      for="inc-keterangan"
+                      class="block text-sm font-medium text-slate-600 mb-1"
+                      >Keterangan</label
+                    >
+                    <input
+                      type="text"
+                      id="inc-keterangan"
+                      required
+                      placeholder="Deskripsi pemasukan"
+                      class="w-full rounded-lg border border-gray-200 focus:border-green-500 focus:ring focus:ring-green-200 transition-shadow text-slate-800 px-4 py-2.5"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex justify-end">
+                  <button
+                    id="income-submit"
+                    type="button"
+                    class="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                  >
+                    Tambah Pemasukan
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div id="transactions-list-income" class="space-y-3">
+              <div class="text-center py-8 text-gray-500">
+                <svg
+                  class="w-12 h-12 mx-auto mb-3 text-green-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+                  ></path>
+                </svg>
+                <p>
+                  Belum ada data pemasukan. Klik tombol di atas untuk menambah
+                  pemasukan pertama!
+                </p>
+              </div>
+            </div>
+          </div>
+          <div id="menu-content-expense" class="menu-content hidden">
+            <div class="flex justify-between items-center mb-6">
+              <div>
+                <h3 class="text-lg font-semibold text-slate-800">
+                  Data Pengeluaran
+                </h3>
+                <p class="text-sm text-slate-600">
+                  Kelola semua pengeluaran Anda
+                </p>
+              </div>
+              <button
+                id="btn-show-expense-form"
+                class="expense-gradient text-white font-semibold py-2 px-6 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105 focus:outline-none focus:ring-4 focus:ring-red-200"
+              >
+                + Tambah Pengeluaran
+              </button>
+            </div>
+            <!-- Expense Form Card -->
+            <div
+              id="expense-form-card"
+              class="glass-effect rounded-xl professional-shadow p-6 mb-8"
+              style="display: none"
+            >
+              <div class="flex items-center gap-3 mb-6">
+                <div
+                  class="w-10 h-10 rounded-lg bg-red-500 flex items-center justify-center text-white text-2xl"
+                >
+                  -
+                </div>
+                <h2 class="text-xl font-semibold">Tambah Pengeluaran</h2>
+              </div>
+              <form id="expense-add-form" class="space-y-6">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div>
+                    <label
+                      for="exp-tanggal"
+                      class="block text-sm font-medium text-slate-600 mb-1"
+                      >Tanggal</label
+                    >
+                    <input
+                      type="date"
+                      id="exp-tanggal"
+                      required
+                      placeholder="mm/dd/yyyy"
+                      class="w-full rounded-lg border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 transition-shadow text-slate-800 px-4 py-2.5"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="exp-jumlah"
+                      class="block text-sm font-medium text-slate-600 mb-1"
+                      >Jumlah (Rp)</label
+                    >
+                    <input
+                      type="number"
+                      id="exp-jumlah"
+                      required
+                      min="0"
+                      placeholder="0"
+                      class="w-full rounded-lg border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 transition-shadow text-slate-800 px-4 py-2.5"
+                    />
+                  </div>
+                  <div>
+                    <label
+                      for="exp-kategori"
+                      class="block text-sm font-medium text-slate-600 mb-1"
+                      >Kategori</label
+                    >
+                    <select
+                      id="exp-kategori"
+                      required
+                      class="w-full rounded-lg border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 transition-shadow text-slate-800 px-4 py-2.5"
+                    >
+                      <option value="">Pilih Kategori Pengeluaran</option>
+                      <option value="Sewa Tempat Tinggal">
+                        Sewa Tempat Tinggal
+                      </option>
+                      <option value="Tagihan Listrik">Tagihan Listrik</option>
+                      <option value="Tagihan Internet (WiFi)">
+                        Tagihan Internet (WiFi)
+                      </option>
+                      <option value="Perlengkapan Rumah Tangga">
+                        Perlengkapan Rumah Tangga
+                      </option>
+                      <option value="Kebutuhan Dapur">Kebutuhan Dapur</option>
+                      <option value="Kategori Lainnya">Kategori Lainnya</option>
+                    </select>
+                  </div>
+                  <div>
+                    <label
+                      for="exp-keterangan"
+                      class="block text-sm font-medium text-slate-600 mb-1"
+                      >Keterangan</label
+                    >
+                    <input
+                      type="text"
+                      id="exp-keterangan"
+                      required
+                      placeholder="Deskripsi pengeluaran"
+                      class="w-full rounded-lg border border-gray-200 focus:border-red-500 focus:ring focus:ring-red-200 transition-shadow text-slate-800 px-4 py-2.5"
+                    />
+                  </div>
+                </div>
+
+                <div class="flex justify-end">
+                  <button
+                    id="expense-submit"
+                    type="button"
+                    class="bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
+                  >
+                    Tambah Pengeluaran
+                  </button>
+                </div>
+              </form>
+            </div>
+            <div id="transactions-list-expense" class="space-y-3">
+              <div class="text-center py-8 text-gray-500">
+                <!-- <svg
+                  class="w-12 h-12 mx-auto mb-3 text-red-300"
+                  fill="none"
+                  stroke="currentColor"
+                  viewbox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M20 12H4"
+                  ></path>
+                </svg> -->
+                <p>
+                  Belum ada data pengeluaran. Klik tombol di atas untuk menambah
+                  pengeluaran pertama!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Error overlay (will appear if JS runtime error occurs) -->
+    <div
+      id="js-error-overlay"
+      class="hidden fixed inset-0 z-50 pointer-events-none"
+    >
+      <div
+        id="js-error-box"
+        class="max-w-lg mx-auto mt-6 bg-red-50 border border-red-200 text-red-900 rounded p-4 shadow-lg pointer-events-auto"
+      >
+        <strong class="block font-semibold">JavaScript Error</strong>
+        <pre
+          id="js-error-message"
+          class="whitespace-pre-wrap text-sm mt-2"
+        ></pre>
+        <button
+          id="js-error-close"
+          class="mt-3 bg-red-600 text-white px-3 py-1 rounded text-sm"
+        >
+          Tutup
+        </button>
+      </div>
+    </div>
+
+    <!-- Edit Modal Overlay -->
+    <div
+      id="edit-modal-overlay"
+      class="fixed hidden inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center"
+    >
+      <div
+        id="edit-modal"
+        class="bg-white rounded-xl w-full max-w-lg p-6 shadow-xl transition scale-100"
+      >
+        <div class="flex items-start justify-between mb-4">
+          <h2 class="text-xl font-bold text-gray-800">Edit Transaksi</h2>
+
+          <button
+            id="edit-modal-close"
+            class="text-gray-400 hover:text-gray-600"
+          >
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <form id="edit-form" class="modal-body">
+          <input type="hidden" id="edit-index-hidden" />
+          <div class="mb-4">
+            <label
+              for="edit-tanggal"
+              class="block text-sm font-medium text-gray-700"
+              >Tanggal</label
+            >
+            <input
+              type="date"
+              id="edit-tanggal"
+              class="mt-1 block w-full px-3 py-2 border rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="edit-keterangan"
+              class="block text-sm font-medium text-gray-700"
+              >Keterangan</label
+            >
+            <input
+              type="text"
+              id="edit-keterangan"
+              class="mt-1 block w-full px-3 py-2 border rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="edit-sumber-kategori"
+              class="block text-sm font-medium text-gray-700"
+              >Sumber/Kategori</label
+            >
+            <input
+              type="text"
+              id="edit-sumber-kategori"
+              class="mt-1 block w-full px-3 py-2 border rounded-md"
+              required
+            />
+          </div>
+          <div class="mb-4">
+            <label
+              for="edit-tipe"
+              class="block text-sm font-medium text-gray-700"
+              >Tipe</label
+            >
+            <select
+              id="edit-tipe"
+              class="mt-1 block w-full px-3 py-2 border rounded-md"
+              required
+            >
+              <option value="pemasukan">Pemasukan</option>
+              <option value="pengeluaran">Pengeluaran</option>
+            </select>
+          </div>
+          <div class="mb-4">
+            <label
+              for="edit-jumlah"
+              class="block text-sm font-medium text-gray-700"
+              >Jumlah</label
+            >
+            <input
+              type="number"
+              id="edit-jumlah"
+              step="0.01"
+              class="mt-1 block w-full px-3 py-2 border rounded-md"
+              required
+            />
+          </div>
+        </form>
+        <div
+          class="modal-footer flex items-center justify-end gap-3 py-4 border-t bg-gray-50 rounded-b-l"
+        >
+          <button
+            id="edit-cancel"
+            class="px-4 py-3 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 hover:text-gray-800 transition"
+          >
+            Batal
+          </button>
+          <button
+            id="edit-submit"
+            class="px-4 py-3 text-sm font-medium text-white bg-blue-600 rounded-lg hover:bg-blue-700 transition"
+          >
+            Simpan Perubahan
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer
+      class="mt-16 text-center py-8 glass-effect rounded-2xl professional-shadow max-w-4xl mx-auto"
+    >
+      <div
+        class="flex flex-col md:flex-row justify-between items-center gap-3 px-4 text-slate-600"
+      >
+        <p class="text-sm">
+          © <span id="footer-year"></span>
+          <span class="font-semibold text-slate-800">Manage Finance Web</span>.
+          Dibuat dengan ❤️ oleh
+          <span class="font-bold text-blue-600">Riza Alraihany</span>.
+        </p>
+
+        <div class="flex items-center space-x-4 text-slate-500">
+          <a
+            href="https://github.com/RizaAlraihany"
+            class="hover:text-blue-600 transition-colors"
+            title="GitHub"
+          >
+            <i class="fab fa-github text-lg"></i>
+          </a>
+          <a
+            href="https://www.linkedin.com/in/riza-alraihany-2374b032b/"
+            target="_blank"
+            class="hover:text-blue-700 transition-colors"
+            title="LinkedIn"
+          >
+            <i class="fab fa-linkedin text-lg"></i>
+          </a>
+
+          <a
+            href="https://www.instagram.com/maripos______"
+            class="hover:text-pink-500 transition-colors"
+            title="Instagram"
+          >
+            <i class="fab fa-instagram text-lg"></i>
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mt-4 text-xs text-slate-400 flex justify-center items-center space-x-2"
+      >
+        <i class="fas fa-code"></i>
+        <span>Dibuat menggunakan Tailwind CSS</span>
+      </div>
+    </footer>
+
+    <script>
+      // Tahun otomatis pada footer
+      document.getElementById("footer-year").textContent =
+        new Date().getFullYear();
+    </script>
+
+    <script src="./src/js/index.js"></script>
+  </body>
+</html>

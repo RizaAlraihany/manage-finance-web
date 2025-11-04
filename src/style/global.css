@@ -1,0 +1,241 @@
+*,
+html,
+body {
+  box-sizing: border-box;
+}
+
+:root {
+  --light: #f7f7f7;
+  --dark: #222222;
+  --gap-primary: 16px;
+  --gap-secondary: 8px;
+}
+
+
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+.card-hover {
+  transition: all 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.professional-shadow {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.income-gradient {
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+}
+.expense-gradient {
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+}
+.balance-gradient {
+  background: linear-gradient(135deg, #3b82f6 0%, #1d4ed8 100%);
+}
+
+@view-transition {
+  navigation: auto;
+}
+
+/* Button hover/active polish */
+.menu-button {
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+.menu-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(13, 27, 62, 0.08);
+}
+
+/* Inputs & selects focus polish */
+input,
+select,
+textarea,
+button {
+  transition: box-shadow 0.14s ease, transform 0.12s ease;
+}
+input:focus,
+select:focus,
+textarea:focus {
+  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.06);
+  transform: translateY(-1px);
+  outline: none;
+}
+
+/* Small visual pulse for primary action to draw attention */
+.income-gradient:focus,
+.expense-gradient:focus {
+  animation: pulseBtn 900ms ease-in-out;
+}
+
+/* Subtle card entrance shadow while animating */
+.collapsible.expanded,
+#income-form-card:not(.hidden),
+#expense-form-card:not(.hidden) {
+  box-shadow: 0 12px 30px rgba(2, 6, 23, 0.06);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .max-w-4xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  #app-title {
+    font-size: 2rem;
+    line-height: 1.05;
+  }
+  .glass-effect {
+    padding: 1rem;
+  }
+  .menu-button {
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+  }
+  /* Ensure form fields have comfortable touch targets */
+  input.w-full,
+  select.w-full,
+  textarea.w-full {
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+  }
+}
+
+@media (max-width: 420px) {
+  #app-title {
+    font-size: 1.6rem;
+  }
+  .inline-flex.w-16.h-16 {
+    width: 48px;
+    height: 48px;
+  }
+}
+
+/* Ensure form card sits below the header/button and does not get overlapped */
+.menu-content > .flex {
+  /* keep header/button block flow and add bottom spacing so card sits below */
+  margin-bottom: 0.6rem;
+  position: relative;
+  z-index: 5;
+}
+.menu-content .glass-effect {
+  margin-top: 0.9rem;
+  position: relative;
+  z-index: 15; /* ensure card sits above header/button to avoid visual overlap */
+  padding-top: 1rem; /* give a little extra room so the decorative icon doesn't touch the edge */
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 40;
+  background-color: rgba(0, 0, 0, 0.5);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.modal-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  z-index: 50;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 500px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.modal-overlay:not(.hidden) {
+  opacity: 1;
+}
+
+.modal-container:not(.hidden) {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.hidden {
+  display: none;
+}
+
+/* Dark mode styles */
+.dark .glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.dark .text-slate-800 {
+  color: #f9f7f7 !important;
+}
+.dark .text-slate-600 {
+  color: #dbe2ef !important;
+}
+.dark input,
+.dark select {
+  background: #112d4e;
+  color: #f9f7f7;
+}
+
+/* Modal animations */
+.modal-container {
+  opacity: 0;
+  transform: translate(-50%, -48%) scale(0.96);
+  transition: all 0.35s ease-soft;
+}
+.modal-container.show {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Slide in/out animations */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease forwards;
+}
+.animate-slideOut {
+  animation: slideOut 0.3s ease forwards;
+}
+
+.active-tab {
+  @apply balance-gradient text-white shadow-md;
+}
